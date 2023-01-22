@@ -1,0 +1,15 @@
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    background: #ddd;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .feedback{
+    margin: 10px;
+    border-radius: 70%;
+  }
+  

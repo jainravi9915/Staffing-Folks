@@ -1,0 +1,54 @@
+<div class="container-fluid mt20">
+    
+    <div class="row">
+        <mat-spinner class="spinner" *ngIf="spinner">
+        </mat-spinner>
+
+        <div class="col-md-6 offset-3">
+            
+        <div class="card p20 bg">
+
+            <h3 class="card-title text-center">Login Here !!</h3>
+        
+            <form [formGroup]="loginForm" (ngSubmit)="formSubmit()"> 
+                <div class="form-group mt20">
+                <label for="email">Email address</label>
+                <input type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        [(ngModel)]="user.email"
+                        formControlName="email"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email"
+                        required=true;
+                        >
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <span *ngIf="email && email.invalid && !email.untouched " style=" color:red">Email is not Valid </span>
+                <!-- <span *ngIf="email"></span> -->
+
+                </div>
+
+                <!-- password -->
+
+
+                <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password"
+                    formControlName="password"
+                    name="password"
+                    id="password"
+                    [(ngModel)]="user.password"
+
+                    placeholder="Password">
+                </div> 
+                <small id="password" class="form-text text-muted">length must be between 8-10 and cannot be Empty</small>
+                <span *ngIf="password && password.invalid && password.touched && password.errors" style=" color:red">Password is not Valid </span>
+                <div class="m5 text-center ">
+                    <button type="submit" [disabled]="loginForm.invalid" class=" text-center btn btn-primary">Submit</button>
+                </div>
+            </form>
+            </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+
+<div class="container" >
+    <mat-spinner class="spinner" *ngIf="spinner">
+    </mat-spinner>
+    <!-- {{user|json}} -->
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-6 offset-md-3">
+            <mat-card class="mt20">
+            <h3 class="text-center mt20">Enquiry Form!!</h3>
+            <div class="container text-center"  >
+                <img src="../../../assets/images/download.png" class="text-center enquiry-logo" alt="logo" style="height: 100px;"/>
+                
+                <form  #form="ngForm" (ngSubmit)="formSubmit(form)"> 
+                    <!--Email-->
+                    <div class="form-group">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input 
+                                type="email" 
+                                #email="ngModel"
+                                required
+                                [pattern]="emailPattern"
+                                matInput placeholder="email"
+                                [ngModel]="user.email"
+                                name="email"
+                            >
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        </mat-form-field>
+
+                        <div *ngIf="!email.valid && email.touched && email.errors " class="alert alert-danger"> 
+                            <p *ngIf=" email.errors['required']"> 
+                                Email required.
+                            </p>			   
+                            <p *ngIf="email.errors['pattern']"> 
+                                Email not valid.
+                            </p>	
+                         </div> 
+                    </div>
+                     <!-- lastName-->
+                     <div class="form-group">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Full Name</mat-label>
+                        <input 
+                            matInput placeholder="Fullname"
+                            #fullName="ngModel"
+                            required
+                            [ngModel]="user.fullName"
+                            name="fullName"
+                            minlength="3"
+                        >
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                     </mat-form-field>
+                     <p
+                        class="alert alert-danger justify-content-center"
+                        *ngIf="!fullName.valid && fullName.touched"
+                    >Full Name required and minuimum Length of 4</p>
+                    </div>
+
+                     <!--Phone-->
+                     <div class="form-group">
+                        
+                     <mat-form-field class="full-width" appearance="outline">
+                        
+                        <mat-label>Phone</mat-label>
+                        <input
+                            type="text"
+                            #phone="ngModel"
+
+                            minlength="10" 
+                            matInput placeholder="+91- 0000000000"
+                            [ngModel]="user.phone"
+                            name="phone"
+                            required="true"
+                        >
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                     </mat-form-field>
+                     <div class="hints">
+                        <pre>Must include country code like +91 0000000000</pre>
+                    </div>
+                     </div>
+
+                     <p
+                            class="alert alert-danger justify-content-center"
+                            *ngIf="!phone.valid && phone.touched && phone.errors"
+                    >Contact required with Country Code and min length 10</p>
+                    
+                     
+                     <!-- AboutMe-->
+                     <div class="form-group full-width">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea type="textarea" matInput placeholder="description"
+                            rows="10"
+                            [ngModel]="user.description"
+                            #description
+                            name="description"
+                        ></textarea>
+                     </mat-form-field>
+                    </div>
+                     <div class="container">
+                        <button mat-raised-button color="primary" [disabled]="form.invalid" value="submit">Register</button>
+                        <button mat-raised-button color="accent" type="reset" class="my-button">reset</button>
+                     </div>
+                     
+                </form>
+            </div>
+        </mat-card>
+        </div>
+    </div>
+</div>
