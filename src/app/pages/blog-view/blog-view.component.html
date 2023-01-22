@@ -1,0 +1,77 @@
+ <hr class="divider" >
+<div class="container-fluid blog-view-card-container " *ngIf="blog">
+     <div class="col-md-10 offset-md-1 "> 
+<div class="row blog-details-container">
+  <div class="leftcolumn">
+    <div class="card ">
+        <h2>{{blog.title}}</h2>
+        <h4> <strong> {{blog.owner}} , {{blog.date}} </strong></h4>
+        <div class="image" > 
+            <!-- <img src="../../../assets/images/artice-banner.jpg" class="fakeimg" > -->
+            <h4>{{blog.description}}</h4>
+            </div>
+        <hr>
+        <div class="card blog-card "> 
+            <div><strong>Tags : </strong>
+                <button class="m5" *ngFor="let tag of blog.tags">
+                    {{tag.tag}}
+                </button>
+            </div>
+        <img class="fakeimg" src="../../../assets/images/profile.jpeg" style="height:200px;" >
+        <div class="block">
+            <pre WIDTH="30" class="card-text"> 
+                {{blog.content}}
+            </pre>
+        </div>
+        </div>
+        <div class="card" *ngIf="blog.footer!=undefined">
+            <pre width="30" class="card-text">
+                  {{blog.footer}}  
+            </pre>
+        </div>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <app-about-author [owner]="owner" ></app-about-author>
+    <!-- <div class="card">
+      <h3>Popular Post</h3>
+      <h1></h1>
+    </div> -->
+    <!-- <div class="card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+      </div> -->
+  </div>
+  
+  <div class="footer">
+    <app-feedback
+        [currentUserId]="owner"
+        [blogId]="blog.id"
+        [likes]="blog.likes"
+        [dislikes]="blog.dislikes"
+    >
+    </app-feedback>
+  </div>
+</div>
+<!--
+            <div class="card blog-view-card">
+                <img src="../../../assets/images/profile.jpeg" class="card-img-top img-responsive " alt="profile"> 
+                <div class="card-body">
+                    <h5 class="card-title"><strong>{{blog.title}}</strong>  </h5>
+                    <pre>{{blog.description}} </pre>
+                    <pre>{{blog.createdBy}} </pre>
+                    <p class="card-text blog-view-card-content">
+                        {{blog.content}}
+                    </p>
+                    <br>
+                    <p class="card-text blog-view-card-footer">{{blog.footer}}</p>
+                </div>
+                <div class="text-center mb20">
+                    <button type="like" class="my-button"(click)="updateLike()">Like</button>
+                    <button type="like" class="my-button"(click)="updateDislike()">Dislike</button>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+</div> 
