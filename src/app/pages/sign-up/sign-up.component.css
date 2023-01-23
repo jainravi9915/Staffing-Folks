@@ -1,6 +1,9 @@
 .full-width{
     width: 100%;
 }
+.my-card{
+    background-color:white;
+}
 .my-button{
     margin:20px;
 }
@@ -8,6 +11,7 @@
 .enquiry-logo{
     padding: 10px;;
     margin: 5px;
+    
 }
 .hints{
     align-items: baseline;

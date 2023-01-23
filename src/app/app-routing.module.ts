@@ -5,6 +5,7 @@ import { BlogViewComponent } from './pages/blog-view/blog-view.component';
 import { HomeBlogViewComponent } from './pages/home-blog-view/home-blog-view.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { OurServicesComponent } from './pages/our-services/our-services.component';
 import { SignupComponent } from './pages/sign-up/sign-up.component';
 import { AuthGuard } from './services/auth.guard';
 import { CreateBlogComponent } from './user/create-blog/create-blog.component';
@@ -40,6 +41,20 @@ const routes: Routes = [
   {
     path:'enquiry',
     component:SignupComponent
+  },
+  
+  {
+    path:'about-us',
+    component:SignupComponent
+  },
+  
+  {
+    path:'contact-us',
+    component:SignupComponent
+  },
+  {
+    path:'our-services',
+    component:OurServicesComponent,
   },
   {
     path:'user-dashboard',
